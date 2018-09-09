@@ -1,0 +1,21 @@
+menu:
+    Blog: /
+    Archive: /archives/
+    GitHub: https://github.com/a1p4ca
+    Rss: /atom.xml
+
+favicon: /favicon.png
+logo: /favicon.png
+
+# Comment
+# e.g disqus: seansun
+disqus: a1p4ca
+duoshuo:
+
+# Analytics
+# google-analytics:
+# ga: UA-xxxxxxxx-x
+ga: UA-83656524-3
+
+# Copyright Infomation
+startyear: 2018

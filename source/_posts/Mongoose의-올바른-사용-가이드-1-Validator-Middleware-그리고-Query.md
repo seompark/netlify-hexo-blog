@@ -4,21 +4,23 @@ desc: Mongoose에서 문서를 꼼꼼하게 읽지 않으면 저지를 수 있�
 date: 2018-09-10 11:39:00
 ---
 
-
 Mongoose에서 문서를 꼼꼼하게 읽지 않으면 저지를 수 있는 실수들을 저지르지 않기 위해 작성된 가이드입니다. Mongoose의 기초적인 사용법과 모델 등에 관해선 다루지 않습니다. 쿼리와 사용할 때 유용한 몇가지 옵션등도 소개하고 있습니다.
 
 <!-- more -->
 
 본 문서를 작성할 당시 Mongoose의 최신 버전은 5.2.13 이었습니다. 버전이 바뀜에 따라 API도 변경됐을 수 있으니 만약 오류가 있다면 제보해주세요.
 
+{% asset_img "cover.jpg" "Photo by Samuel Austin on Unsplash" %}
+> Photo by Samuel Austin on Unsplash
+
 # Query
 
 쿼리를 실행(execute)하는 방법에는 두 가지가 있습니다.
 
 1. 콜백 함수를 넘기기
-2. `.exec()`으로 Promise같이 쓰기
+2. `.exec()`으로 `Promise`같이 쓰기
 
-쿼리 인스턴스의 함수 중 콜백을 넘기지 않았을 때 Promise를 반환하는(정확히는 Promise-Like) 함수는 `create()`, `save()`, `remove()`, `exec()` 등 일부고 그 외엔 모두 자기 자신(쿼리 인스턴스)를 다시 반환하기 때문에, 아래와 같은 구문은 옳지 않습니다. 쿼리 인스턴스에 대해 `await`를 쓰는 것은 말이 안되죠.
+쿼리 인스턴스의 함수 중 콜백을 넘기지 않았을 때 `Promise`를 반환하는(정확히는 `Promise-Like`) 함수는 `create()`, `save()`, `remove()`, `exec()` 등 일부고 그 외엔 모두 자기 자신(쿼리 인스턴스)를 다시 반환하기 때문에, 아래와 같은 구문은 옳지 않습니다. 쿼리 인스턴스에 대해 `await`를 쓰는 것은 말이 안되죠.
 
 따라서 쿼리를 최종 실행시키려면 반드시 `.exec()` 함수를 쓰거나 쿼리의 마지막 매개변수로 콜백 함수를 넘겨줘야 합니다.
 
@@ -261,7 +263,7 @@ Mongoose는 미들웨어에 `this`를 바인딩하여 유용하게 사용할 수
 
 Mongoose는 `pre` 훅을 Serial과 Parallel, 두가지 타입으로 설명합니다.  
 
-Serial 미들웨어는 우리가 일반적으로 사용하는 훅인데요, 하나의 미들웨어가 끝나야 다음 미들웨어가 실행됩니다. Promise를 반환하는 미들웨어의 경우, resolve가 되어야만 다음 미들웨어를 실행하죠.
+Serial 미들웨어는 우리가 일반적으로 사용하는 훅인데요, 하나의 미들웨어가 끝나야 다음 미들웨어가 실행됩니다. `Promise`를 반환하는 미들웨어의 경우, resolve가 되어야만 다음 미들웨어를 실행하죠.
 
 ```javascript
 schema.pre('save', function (next) {
@@ -299,7 +301,7 @@ schema.pre('save', true, function(next, done) {
 
 미들웨어 함수의 매개변수가 1개 혹은 2개인 경우, 첫 번째 매개변수는 해당 hooked method의 결과값을, 두 번째 매개변수는 다음 미들웨어를 호출하는 `next` 함수입니다. 매개변수가 2개인 경우 비동기 미들웨어로 인식하여 `next` 를 호출하기 전까진 다음 미들웨어가 실행되지 않습니다.
 
-또한 `pre` 훅과 마찬가지로 Promise를 반환할 수도 있습니다.
+또한 `pre` 훅과 마찬가지로 `Promise`를 반환할 수도 있습니다.
 
 ```javascript
 schema.post('save', function (doc, next) {

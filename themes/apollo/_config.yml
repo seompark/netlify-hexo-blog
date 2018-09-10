@@ -1,8 +1,8 @@
 menu:
-    Blog: /
+    About: /about
+    Résumé: /resume
     Archive: /archives/
     GitHub: https://github.com/a1p4ca
-    Rss: /atom.xml
 
 favicon: /favicon.png
 logo: /favicon.png

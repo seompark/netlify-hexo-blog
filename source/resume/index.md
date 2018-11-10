@@ -16,14 +16,20 @@ date: 2018-09-10
 
 ## Tools & Libraries
 
-* Git
-* Babel
+Frontend
 * Webpack
+* Babel
 * Gulp
+* (React, Redux, MobX) & (Vue.js, Vuex)
+
+Backend
 * MongoDB
 * MySQL
-* (React, Redux, MobX) & (Vue.js, Vuex)
 * Express.js, Koa, Hapi, Nest.js, Mongoose etc.
+* Docker, docker-compose
+
+Etc
+* Git
 
 # Projects
 
@@ -83,6 +89,7 @@ date: 2018-09-10
 * Hello New() World 해카톤 대상
 * 제 4회 임팩터톤 대상
 * 한국정보올림피아드 공모부문 은상
+* 불법스포츠도박 근절 해카톤 대상
 
 ## 2017
 
